@@ -1,5 +1,29 @@
-# Projet GameOn
-1. Forkez ce repo ;
-2. Il est conseillé d'utiliser VisualStudio Code et vous pouvez utiliser Docker, mais ce n'est pas obligatoire ;
-3. Il n'y a aucune dépendance ;
-4. Vous ne devez utiliser que du CSS personnalisé et du JavaScript pur, sans jQuery, Bootstrap ou autre librairie.
+![cover](https://kpkfzczpavanzocxzyta.supabase.co/storage/v1/object/public/oc-react/readme-header-oc-react04.jpg)
+
+# GAME ON
+
+A SASS animated project for OpenClassrooms course AKA Project 3
+
+| -       | URL                                                                                          |
+| ------- | -------------------------------------------------------------------------------------------- |
+| DEMO    | [https://oc04.youcodeuse.com](https://oc04.youcodeuse.com)                                   |
+| REPO    | [https://github.com/nephcode/oc-04-gameon](https://github.com/nephcode/oc-03-ohmyfood)       |
+| PROJECT | [https://github.com/users/nephcode/projects/3](https://github.com/users/nephcode/projects/3) |
+
+## INFORMATION
+
+| RESSOURCES  | TYPE                            |
+| ----------- | ------------------------------- |
+| CODE        | `SASS(SCSS)` `HTML` `JAVACRIPT` |
+| AGILE       | `GITHUB PROJECT`                |
+| STORAGE BIS | `SUPABASE`                      |
+| CI/CD       | `GITHUB PAGES` > `Branch MAIN`  |
+
+## INSTRUCTION
+
+- No library, Pure CSS/SASS, Pure JAVASCRIPT
+- [Figma ressources](https://www.figma.com/file/B7NKBDvSI18uoMLJgpnh48/UI-Design-GameOn-FR?node-id=106%3A630)
+
+## EXPLAIN THE PROJECT
+
+![cover](https://kpkfzczpavanzocxzyta.supabase.co/storage/v1/object/public/nephcode-public/githubReadmeSkills.png)
