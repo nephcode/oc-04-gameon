@@ -2,7 +2,7 @@
 
 # GAME ON
 
-A SASS animated project for OpenClassrooms course AKA Project 3
+A *JS FORM* validator animated project for OpenClassrooms course AKA Project 4 GAME ON
 
 | -       | URL                                                                                          |
 | ------- | -------------------------------------------------------------------------------------------- |
@@ -25,5 +25,9 @@ A SASS animated project for OpenClassrooms course AKA Project 3
 - [Figma ressources](https://www.figma.com/file/B7NKBDvSI18uoMLJgpnh48/UI-Design-GameOn-FR?node-id=106%3A630)
 
 ## EXPLAIN THE PROJECT
+- `HTML` Integration 
+- `CSS` to `SCSS` upgrade
+- 
+
 
 ![cover](https://kpkfzczpavanzocxzyta.supabase.co/storage/v1/object/public/nephcode-public/githubReadmeSkills.png)
