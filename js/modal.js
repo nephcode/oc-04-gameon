@@ -21,3 +21,14 @@ function launchModal() {
 }
 
 
+// Sélectionnez l'élément qui représente la croix
+const closeBtn = document.querySelector('.close');
+
+// La modale que vous souhaitez fermer
+const modal = document.querySelector('.bground');
+
+// Ajoutez un écouteur d'événements pour détecter le clic sur la croix
+closeBtn.addEventListener('click', () => {
+  // Ajoutez la logique pour cacher la modale
+  modal.style.display = 'none';
+});
