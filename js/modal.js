@@ -17,9 +17,6 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 
-let gamePassFirst = document.getElementById("first").value;
-console.log(gamePassFirst);
-
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -47,6 +44,7 @@ closeBtn.addEventListener('click', () => {
 
 
 // PRENOM =====================================================
+/*
 let gameFirst = document.getElementById("first").value;
 if (gameFirst) {
   gameFirst.addEventListener('blur', () => {
@@ -58,7 +56,9 @@ if (gameFirst) {
   console.log("L'élément 'first' est vide.");
   
 }
+*/
 // NOM ========================================================
+/*
 let gameLast = document.getElementById("last").value;
 if (gameLast) {
   gameLast.addEventListener('blur', () => {
@@ -68,22 +68,60 @@ if (gameLast) {
   console.log("L'élément 'last' est vide.");
 }
 
+*/
 
 //const gameLast = document.getElementById("last").value;
 const gameBirth = document.getElementById("birthdate").value;
-const gameEmail = document.getElementById("email").value;
+
 const gameQuantity = document.getElementById("quantity").value;
-console.log(gameFirst);
-console.log(gameLast);
+//console.log(gameFirst);
+//console.log(gameLast);
 
 //=====================
 //=====================
 //=====================
-
-form.addEventListener("submit", (event) => {
+const formOC = document.getElementById("ocform");
+formOC.addEventListener("submit", (event) => {
   // On empêche le comportement par défaut
   event.preventDefault();
   console.log("Il n’y a pas eu de rechargement de page");
+  // prenom
+  let gameFirst = document.getElementById("first").value;
+  console.log("Prénom : " + gameFirst);
+  // nom
+  let gameLast = document.getElementById("last").value;
+  console.log("Nom :" + gameLast);
+  // email
+  let gameEmail = document.getElementById("email").value;
+  console.log("Email : " + gameEmail);
+  // birth
+  const gameBirth = document.getElementById("birthdate").value;
+  console.log("Date de naissance : " + gameBirth);
+  // Participation 
+  const gameQuantity = document.getElementById("quantity").value;
+  console.log("Nombre de Participation : " + gameQuantity);
+  // Tournoi
+  let gameTournoi = document.querySelectorAll('input[name="location"]');
+  let location = "";
+  for (let i = 0; i < gameTournoi.length; i++) {
+    if (gameTournoi[i].checked) {
+      location = gameTournoi[i].value
+      break
+    }
+  }
+  console.log(location) // affiche la valeur du radio coché
+  // CGU & ADS
+  const gameCgu = document.getElementById("checkboxcgu").checked;
+  if(gameCgu){
+    console.log("Conditions générales acceptées : Oui");  }
+  else {
+    console.log("Conditions générales acceptées : Non");  }
+  const gameAds = document.getElementById("checkboxads").value;
+  if(gameAds){
+    console.log("Conditions RGPD acceptées : Oui");  }
+  else {
+    console.log("Conditions RGPD acceptées : Non");  }
+  //
 
 
 });
