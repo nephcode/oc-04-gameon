@@ -257,8 +257,8 @@ input[data-error]::after {
 .checkbox-label .checkbox-icon::after,
 .checkbox2-label .checkbox-icon::after {
   content: "";
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   background-color: #279e7a;
   border-radius: 50%;
   text-indent: 29px;

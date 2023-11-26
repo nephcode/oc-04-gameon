@@ -39,9 +39,35 @@ closeBtn.addEventListener('click', () => {
 });
 
 // ============================================================
+// FONCTION  ======================= NEAH GAME ================
+// =============================================== 2023 =======
+  // change button by neah
+/***
+*
+* 
+* @param {string} targetBtn
+* @param {string} classChg
+* @param {string} TxtBtn
+*/
+
+function DisplayValidForm(targetBtn, TxtBtn, classChg){
+  /// =============
+  let btCloseForm = document.getElementById(targetBtn);
+  //let finalMessage = "Merci pour votre inscription";
+  //let paragraphe = "L'application pour apprendre à taper plus vite !";
+  /// =============
+  let txtDone = `
+         <bouton id="FinalBtn" class="${classChg}"
+          type="submit"
+          class="button">${TxtBtn}</bouton>
+        `;
+  btCloseForm.innerHTML = txtDone;
+  /// =============  
+}
+
+// ============================================================
 // FORMULAIRE  ================================================
 // ============================================================
-
 
 // PRENOM =====================================================
 /*
@@ -121,7 +147,9 @@ formOC.addEventListener("submit", (event) => {
     console.log("Conditions RGPD acceptées : Oui");  }
   else {
     console.log("Conditions RGPD acceptées : Non");  }
-  //
 
-
+  let ar = "Fermer";
+  let classos = "btn-submit btn-signup modal-btn";
+  let target = "FinalBtn";
+  DisplayValidForm(target, ar, classos );
 });
