@@ -38,6 +38,9 @@ closeBtn.addEventListener('click', () => {
   console.log("Fermeture de la modal");
 });
 
+
+
+
 // ============================================================
 // FONCTION  ======================= NEAH GAME ================
 // =============================================== 2023 =======
@@ -61,9 +64,20 @@ function DisplayValidForm(targetBtn, TxtBtn, classChg){
           type="submit"
           class="button">${TxtBtn}</bouton>
         `;
-  btCloseForm.innerHTML = txtDone;
+  
+  let txtDon = `${TxtBtn}`;
+  btCloseForm.innerText = txtDon;
   /// =============  
 }
+
+// Ajoutez un écouteur d'événements pour détecter le clic sur la croix
+let clozForm = document.getElementById("FinalBtn");
+clozForm.addEventListener('dblclick', () => {
+  // Ajoutez la logique pour cacher la modale
+  modal.style.display = 'none';
+  console.log("Fermeture de la modal");
+});
+
 
 // ============================================================
 // FORMULAIRE  ================================================
