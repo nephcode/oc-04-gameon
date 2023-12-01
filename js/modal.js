@@ -26,7 +26,6 @@ function launchModal() {
   console.log("Ouverture de la modal");
 }
 
-
 // Sélectionnez l'élément qui représente la croix
 const closeBtn = document.querySelector('.close');
 const modal = document.querySelector('.bground');
@@ -38,13 +37,10 @@ closeBtn.addEventListener('click', () => {
   console.log("Fermeture de la modal");
 });
 
-
-
-
 // ============================================================
 // FONCTION  ======================= NEAH GAME ================
 // =============================================== 2023 =======
-  // change button by neah
+// change button by neah
 /***
 *
 * 
@@ -72,54 +68,38 @@ function DisplayValidForm(targetBtn, TxtBtn, classChg){
 
 // Ajoutez un écouteur d'événements pour détecter le clic sur la croix
 let clozForm = document.getElementById("FinalBtn");
-clozForm.addEventListener('dblclick', () => {
+clozForm.addEventListener('click', () => {
   // Ajoutez la logique pour cacher la modale
   modal.style.display = 'none';
   console.log("Fermeture de la modal");
 });
 
-
 // ============================================================
 // FORMULAIRE  ================================================
 // ============================================================
 
-// PRENOM =====================================================
-/*
-let gameFirst = document.getElementById("first").value;
-if (gameFirst) {
-  gameFirst.addEventListener('blur', () => {
-      console.log(gameFirst);
-  });
-} else {
-  gameFirstStyle = document.getElementById("first");
-  gameFirstStyle.classList.add(".text-control");
-  console.log("L'élément 'first' est vide.");
-  
+
+// ============================================================
+// FONCTION VALID EMAIL ============ NEPHA CODE ===============
+// =============================================== 2023 =======
+function Validor(input, condition ){
+/// =============
+  //let inEmail = trim(document.getElementById(email).value);
+  const formData = input.parentElement;
+  if (condition ){
+    formData.setAttribute("data-error-visible", "false")
+  }
+  else {
+    formData.setAttribute("data-error-visible", "true")
+  }
+ 
 }
-*/
-// NOM ========================================================
-/*
-let gameLast = document.getElementById("last").value;
-if (gameLast) {
-  gameLast.addEventListener('blur', () => {
-      console.log(gameLast);
-  });
-} else {
-  console.log("L'élément 'last' est vide.");
-}
+/// ============= 
 
-*/
 
-//const gameLast = document.getElementById("last").value;
-const gameBirth = document.getElementById("birthdate").value;
-
-const gameQuantity = document.getElementById("quantity").value;
-//console.log(gameFirst);
-//console.log(gameLast);
-
-//=====================
-//=====================
-//=====================
+// =================== GAMe öN ============== ATHENA PRACTICE =
+// OC FORM SUBMIT ================== NEPHA CODE ===============
+// =============================================== 2023 =======
 const formOC = document.getElementById("ocform");
 formOC.addEventListener("submit", (event) => {
   // On empêche le comportement par défaut
@@ -166,4 +146,11 @@ formOC.addEventListener("submit", (event) => {
   let classos = "btn-submit btn-signup modal-btn";
   let target = "FinalBtn";
   DisplayValidForm(target, ar, classos );
+
+  const emailInput = document.getElementById("email");
+  let regex = new RegExp("^[a-z]+$");
+  let resultat = regex.test(emailInput);
+  console.log(resultat); // Affiche true.
+  //const condEmail = emailInput.value.match(/[a-z]/g);
+  Validor(emailInput, resultat );
 });
