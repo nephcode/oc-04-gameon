@@ -68,7 +68,7 @@ function DisplayValidForm(targetBtn, TxtBtn, classChg){
 
 // Ajoutez un écouteur d'événements pour détecter le clic sur la croix
 let clozForm = document.getElementById("FinalBtn");
-clozForm.addEventListener('click', () => {
+clozForm.addEventListener('dblclick', () => {
   // Ajoutez la logique pour cacher la modale
   modal.style.display = 'none';
   console.log("Fermeture de la modal");
@@ -86,7 +86,7 @@ function Validor(input, condition ){
 /// =============
   //let inEmail = trim(document.getElementById(email).value);
   const formData = input.parentElement;
-  if (condition ){
+  if (condition){
     formData.setAttribute("data-error-visible", "false")
   }
   else {
@@ -148,9 +148,8 @@ formOC.addEventListener("submit", (event) => {
   DisplayValidForm(target, ar, classos );
 
   const emailInput = document.getElementById("email");
-  let regex = new RegExp("^[a-z]+$");
-  let resultat = regex.test(emailInput);
+  let regexMail = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+");
+  let resultat = regexMail.test(emailInput);
   console.log(resultat); // Affiche true.
-  //const condEmail = emailInput.value.match(/[a-z]/g);
   Validor(emailInput, resultat );
 });
