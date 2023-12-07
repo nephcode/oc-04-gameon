@@ -82,7 +82,7 @@ clozForm.addEventListener('dblclick', () => {
  /**
  * 
  *
- * 
+ * @param {string} input
  * 
  * */
  function OnAirChange(input, listener, regRule){
@@ -96,18 +96,18 @@ clozForm.addEventListener('dblclick', () => {
     const fieldData = targetAir.parentElement;
     if (regRule.test(emailValue)) {
       // If email format is valid, you can perform some actions here
-      console.log("Email is valid.");
+      console.log(`L'input ${input} est valide`);
       fieldData.setAttribute("data-error-visible", "false")
     } else {
       // If email format is not valid, you can perform some actions here
-      console.log("Invalid email format.");
+      console.log(`L'input ${input} est invalide`);
       fieldData.setAttribute("data-error-visible", "true")
     }
   });
 }
 
 const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-const stringRegEx = /^[a-zA-Z0-9._-]{2,4}$/;
+const stringRegEx = /^[a-zA-Z0-9._-]{2,32}$/;
 // Call the function with the ID of your email input, 'change' as the listener, and the regex
 OnAirChange('email', 'change', emailRegEx);
 OnAirChange('last', 'change', stringRegEx);

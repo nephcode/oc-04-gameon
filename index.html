@@ -63,7 +63,7 @@
               action="/index.html"
               method="get" id="ocform" novalidate>
               <div
-                class="formData">
+                class="formData" data-error-visible="false" data-error="Champ Prénom invalide">
                 <label>Prénom</label><br>
                 <input
                   class="text-control"
@@ -74,7 +74,7 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" data-error-visible="false" data-error="Champ Nom invalide">
                 <label>Nom</label><br>
                 <input
                   class="text-control"
@@ -94,7 +94,7 @@
                 /><br>
               </div>
               <div
-                class="formData" data-error="erefeferferf">
+                class="formData" data-error="false">
                 <label>Date de naissance</label><br>
                 <input
                   class="text-control"
@@ -104,13 +104,13 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" data-error="false">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
-                class="formData">
+                class="formData" >
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -180,7 +180,7 @@
               </div>
 
               <div
-                class="formData">
+                class="formData" data-error="false">
                 <input
                   class="checkbox-input"
                   type="checkbox"
