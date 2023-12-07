@@ -75,9 +75,46 @@ clozForm.addEventListener('dblclick', () => {
 });
 
 // ============================================================
-// FORMULAIRE  ================================================
+// FORMULAIRE  =========================== NEPHA CODE =========
 // ============================================================
+ /// nom-fonction (nom-champ, condition, type de listener)
+ // la fonction s'appelle en change sur les champs
+ /**
+ * 
+ *
+ * 
+ * 
+ * */
+ function OnAirChange(input, listener, regRule){
+  const targetAir = document.getElementById(input);
+  targetAir.addEventListener(listener, (event) => {
+    // bloquer le GET 
+    //event.preventDefault();
 
+    // Example: Validate email format
+    const emailValue = event.target.value;
+    const fieldData = targetAir.parentElement;
+    if (regRule.test(emailValue)) {
+      // If email format is valid, you can perform some actions here
+      console.log("Email is valid.");
+      fieldData.setAttribute("data-error-visible", "false")
+    } else {
+      // If email format is not valid, you can perform some actions here
+      console.log("Invalid email format.");
+      fieldData.setAttribute("data-error-visible", "true")
+    }
+  });
+}
+
+const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+const stringRegEx = /^[a-zA-Z0-9._-]{2,4}$/;
+// Call the function with the ID of your email input, 'change' as the listener, and the regex
+OnAirChange('email', 'change', emailRegEx);
+OnAirChange('last', 'change', stringRegEx);
+OnAirChange('first', 'change', stringRegEx);
+
+
+ // plus efficace que les papillons 
 
 // ============================================================
 // FONCTION VALID EMAIL ============ NEPHA CODE ===============
