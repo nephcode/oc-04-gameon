@@ -97,11 +97,15 @@ clozForm.addEventListener('dblclick', () => {
     if (regRule.test(emailValue)) {
       // If email format is valid, you can perform some actions here
       console.log(`L'input ${input} est valide`);
+      fieldData.classList.add("formDataOK");
       fieldData.setAttribute("data-error-visible", "false")
+      fieldData.setAttribute("data-error", `Votre saisie ${input} est valide`)
+
     } else {
       // If email format is not valid, you can perform some actions here
       console.log(`L'input ${input} est invalide`);
-      fieldData.setAttribute("data-error-visible", "true")
+      fieldData.setAttribute("data-error-visible", "true");
+      fieldData.setAttribute("data-error", `Votre saisie ${input} n'est pas valide`)
     }
   });
 }
