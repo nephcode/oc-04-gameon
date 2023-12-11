@@ -68,9 +68,9 @@ function DisplayValidForm(targetBtn, TxtBtn, classChg){
 
 // Ajoutez un écouteur d'événements pour détecter le clic sur la croix
 let clozForm = document.getElementById("FinalBtn");
-clozForm.addEventListener('dblclick', () => {
+clozForm.addEventListener('click', () => {
   // Ajoutez la logique pour cacher la modale
-  modal.style.display = 'none';
+  //modal.style.display = 'none';
   console.log("Fermeture de la modal");
 });
 
