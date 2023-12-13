@@ -91,18 +91,15 @@ clozForm.addEventListener('click', () => {
     // bloquer le GET 
     //event.preventDefault();
 
-    // Example: Validate email format
     const emailValue = event.target.value;
     const fieldData = targetAir.parentElement;
     if (regRule.test(emailValue)) {
-      // If email format is valid, you can perform some actions here
       console.log(`L'input ${input} est valide`);
       fieldData.classList.add("formDataOK");
       fieldData.setAttribute("data-error-visible", "false")
       fieldData.setAttribute("data-error", `Votre saisie ${input} est valide`)
 
     } else {
-      // If email format is not valid, you can perform some actions here
       console.log(`L'input ${input} est invalide`);
       fieldData.setAttribute("data-error-visible", "true");
       fieldData.setAttribute("data-error", `Votre saisie ${input} n'est pas valide`)
@@ -110,12 +107,8 @@ clozForm.addEventListener('click', () => {
   });
 }
 
-const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-const stringRegEx = /^[a-zA-Z0-9._-]{2,32}$/;
-// Call the function with the ID of your email input, 'change' as the listener, and the regex
-OnAirChange('email', 'change', emailRegEx);
-OnAirChange('last', 'change', stringRegEx);
-OnAirChange('first', 'change', stringRegEx);
+
+
 
 
  // plus efficace que les papillons 
@@ -135,7 +128,43 @@ function Validor(input, condition ){
   }
  
 }
-/// ============= 
+
+// ============================================================
+// FONCTION DISAMIT ================ NEPHA CODE ===============
+// =============================================== 2023 =======
+function Disamit(inputDisamit, targetDisamit, listenerDisamit) {
+  let elementInput = document.getElementById(inputDisamit);
+  let conditionDisable = elementInput.checked;
+  let retro = conditionDisable;
+
+  elementInput.addEventListener(listenerDisamit, (event) => {
+    retro = elementInput.checked;
+    if (retro) {
+      console.log("Conditions générales acceptées : Oui");
+      targetDisamit.removeAttribute("disabled");
+    } else {
+      console.log("Conditions générales acceptées : Non");
+      targetDisamit.setAttribute("disabled", "");
+    }
+  });
+}
+
+// ============================================================
+// EXECUTE CHANGE ================== NEPHA CODE ===============
+// =============================================== 2023 =======
+
+const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+const stringRegEx = /^[a-zA-Z0-9._-]{2,32}$/;
+// Call the function with the ID of your email input, 'change' as the listener, and the regex
+OnAirChange('email', 'change', emailRegEx);
+OnAirChange('last', 'change', stringRegEx);
+OnAirChange('first', 'change', stringRegEx);
+
+/////
+
+const gameCgu = "checkboxcgu";
+const btnSub = document.getElementById("FinalBtn");
+Disamit(gameCgu, btnSub, 'change');
 
 
 // =================== GAMe öN ============== ATHENA PRACTICE =
@@ -172,7 +201,6 @@ formOC.addEventListener("submit", (event) => {
   }
   console.log(location) // affiche la valeur du radio coché
   // CGU & ADS
-  const gameCgu = document.getElementById("checkboxcgu").checked;
   if(gameCgu){
     console.log("Conditions générales acceptées : Oui");  }
   else {
