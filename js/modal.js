@@ -85,7 +85,7 @@ clozForm.addEventListener('click', () => {
  * @param {string} input
  * 
  * */
- function OnAirChange(input, listener, regRule){
+const OnAirChange = (input, listener, regRule) => {
   const targetAir = document.getElementById(input);
   targetAir.addEventListener(listener, (event) => {
     // bloquer le GET 
@@ -100,7 +100,7 @@ clozForm.addEventListener('click', () => {
       fieldData.setAttribute("data-error", `Votre saisie ${input} est valide`)
 
     } else {
-      console.log(`L'input ${input} est invalide`);
+      console.log(`L'input ${emailValue} est invalide`);
       fieldData.setAttribute("data-error-visible", "true");
       fieldData.setAttribute("data-error", `Votre saisie ${input} n'est pas valide`)
     }
@@ -132,10 +132,15 @@ function Validor(input, condition ){
 // ============================================================
 // FONCTION DISAMIT ================ NEPHA CODE ===============
 // =============================================== 2023 =======
-function Disamit(inputDisamit, targetDisamit, listenerDisamit) {
+/**
+*
+* @param {string } inputDisamit 
+*
+*/
+const Disamit = (inputDisamit, targetDisamit, listenerDisamit) => {
   let elementInput = document.getElementById(inputDisamit);
-  let conditionDisable = elementInput.checked;
-  let retro = conditionDisable;
+  //let conditionDisable = elementInput.checked;
+  //let retro = elementInput.checked;
 
   elementInput.addEventListener(listenerDisamit, (event) => {
     retro = elementInput.checked;
@@ -143,8 +148,9 @@ function Disamit(inputDisamit, targetDisamit, listenerDisamit) {
       console.log("Conditions générales acceptées : Oui");
       targetDisamit.removeAttribute("disabled");
     } else {
-      console.log("Conditions générales acceptées : Non");
+      //console.log("Conditions générales acceptées : Non");
       targetDisamit.setAttribute("disabled", "");
+      throw new Error(`Le bouton ${inputDisamit} des CGU n'est pas coché`);
     }
   });
 }
@@ -154,12 +160,16 @@ function Disamit(inputDisamit, targetDisamit, listenerDisamit) {
 // =============================================== 2023 =======
 
 const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-const stringRegEx = /^[a-zA-Z0-9._-]{2,32}$/;
+const stringRegEx = /^[a-zA-Z0-9._-\u00C0-\u00FF]{2,32}$/;
+const dateRegEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+const tourRegEx = /^\d{1,4}$/;
+
 // Call the function with the ID of your email input, 'change' as the listener, and the regex
 OnAirChange('email', 'change', emailRegEx);
 OnAirChange('last', 'change', stringRegEx);
 OnAirChange('first', 'change', stringRegEx);
-
+OnAirChange('birthdate', 'change', dateRegEx);
+OnAirChange('quantity', 'change', tourRegEx);
 /////
 
 const gameCgu = "checkboxcgu";
@@ -222,3 +232,9 @@ formOC.addEventListener("submit", (event) => {
   console.log(resultat); // Affiche true.
   Validor(emailInput, resultat );
 });
+
+try {
+  
+} catch (Error) {
+  
+}
