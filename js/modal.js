@@ -156,6 +156,41 @@ const Disamit = (inputDisamit, targetDisamit, listenerDisamit) => {
 }
 
 // ============================================================
+// FONCTION RATIOCHECK ============= NEPHA CODE ===============
+// =============================================== 2023 =======
+
+/// Bolean YES/NO if NO Error else WHILE Return values 
+/**
+/**
+ * Vérifie l'état d'un bouton radio et ajoute un écouteur d'événements.
+ *
+ * @param {string} inputRadio - L'ID de l'élément bouton radio.
+ * @param {string} listenerCheck - Le type d'événement à écouter (par exemple, 'change').
+ * @throws {Error} Si l'élément radio spécifié n'existe pas ou si aucun bouton n'est sélectionné.
+ */
+const Radiocheck = (listenerCheck) => {
+  
+  const gameTournoi = document.querySelectorAll('input[name="location"]');
+  console.log("Tournoi sélectionné : " + gameTournoi);
+  for (let i = 0; i < gameTournoi.length; i++) {
+    gameTournoi[i].addEventListener(listenerCheck, (event) => {
+      let location = "";
+     if (gameTournoi[i].checked) {
+      location = gameTournoi[i].value;
+      }
+      console.log("Tournoi sélectionné : " + location);
+    });
+    
+  }
+  if (!gameTournoi) {
+    throw new Error("L'élément radio spécifié n'existe pas");
+  }
+
+  
+}
+
+
+// ============================================================
 // EXECUTE CHANGE ================== NEPHA CODE ===============
 // =============================================== 2023 =======
 
@@ -171,11 +206,12 @@ OnAirChange('first', 'change', stringRegEx);
 OnAirChange('birthdate', 'change', dateRegEx);
 OnAirChange('quantity', 'change', tourRegEx);
 /////
-
 const gameCgu = "checkboxcgu";
 const btnSub = document.getElementById("FinalBtn");
 Disamit(gameCgu, btnSub, 'change');
-
+/////
+const gameTournoi = document.querySelectorAll('input[name="location"]');
+Radiocheck('click');
 
 // =================== GAMe öN ============== ATHENA PRACTICE =
 // OC FORM SUBMIT ================== NEPHA CODE ===============
@@ -232,9 +268,10 @@ formOC.addEventListener("submit", (event) => {
   console.log(resultat); // Affiche true.
   Validor(emailInput, resultat );
 });
-
+/*
 try {
   
 } catch (Error) {
   
 }
+*/
