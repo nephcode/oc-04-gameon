@@ -88,16 +88,18 @@ const onAirChange = (inputOnAir, listenerOnAir, regRuleOnAir) => {
     //event.preventDefault();
     const inputValue = event.target.value;
     const fieldData = targetAir.parentElement;
-    if (regRuleOnAir.test(inputValue)) {
+    if (inputValue && regRuleOnAir.test(inputValue)) {
       console.log(`L'input ${inputValue} est valide`);
       fieldData.classList.add("formDataOK");
       fieldData.setAttribute("data-error-visible", "false")
       fieldData.setAttribute("data-error", `Votre saisie ${inputValue} est valide`)
     } else {
+      btnSub.setAttribute("disabled", "");
       console.log(`L'input ${inputValue} est invalide`);
+
       fieldData.setAttribute("data-error-visible", "true");
       fieldData.setAttribute("data-error", `Votre saisie ${inputValue} n'est pas valide`)
-      throw new Error(`L'élément ${inputValue} spécifié n'est pas valide`);
+      throw new error(`L'élément ${inputValue} spécifié n'est pas valide`);
     }
   });
 }
@@ -123,7 +125,7 @@ const disamit = (inputDisamit, targetDisamit, listenerDisamit) => {
     } else {
       //console.log("Conditions générales acceptées : Non");
       targetDisamit.setAttribute("disabled", "");
-      throw new Error(`Le bouton ${inputDisamit} des CGU n'est pas coché`);
+      throw new error(`Le bouton ${inputDisamit} des CGU n'est pas coché`);
     }
   });
 }
@@ -137,12 +139,12 @@ const disamit = (inputDisamit, targetDisamit, listenerDisamit) => {
 /**
  * Vérifie l'état d'un bouton radio et ajoute un écouteur d'événements.
  *
- * @param {string} inputRadio - L'ID de l'élément bouton radio.
+ * @param {string} inputRadioIn - L'ID de l'élément bouton radio.
  * @param {string} listenerCheck - Le type d'événement à écouter (par exemple, 'change').
  * @throws {Error} Si l'élément radio spécifié n'existe pas ou si aucun bouton n'est sélectionné.
  */
-const radioCheck = (inputRadio,listenerCheck) => {
-  //const inputRadio = document.querySelectorAll('input[name="location"]');
+const radioCheck = (inputRadioIn,listenerCheck) => {
+  const inputRadio = document.querySelectorAll(inputRadioIn);
   console.log("Tournoi sélectionné : " + inputRadio);
   //let location = inputRadio[0];
   for (let i = 0; i < inputRadio.length; i++) {
@@ -159,7 +161,7 @@ const radioCheck = (inputRadio,listenerCheck) => {
     });
   }
   if (!gameTournoi) {
-    throw new Error("L'élément radio spécifié n'existe pas");
+    throw new error("L'élément radio spécifié n'existe pas");
   }
 }
 // RADIOCHECK END ================================ 2023 =======
@@ -169,27 +171,25 @@ const radioCheck = (inputRadio,listenerCheck) => {
 // EXECUTE CHANGE ================== NEPHA CODE ===============
 // =============================================== 2023 =======
 
+// VARIABLE PROGZ
+const gameCgu = "checkboxcgu";
+const btnSub = document.getElementById("FinalBtn");
+const gameTournoi = 'input[name="location"]';
+// VARIABLE REGEX
 const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 const stringRegEx = /^[a-zA-Z0-9._-\u000-\u00FF]{2,32}$/;
 const dateRegEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 const tourRegEx = /^\d{1,4}$/;
-
-
-
 // Call the function with the ID of your email input, 'change' as the listener, and the regex
-onAirChange('email', 'change', emailRegEx);
-onAirChange('last', 'change', stringRegEx);
-onAirChange('first', 'change', stringRegEx);
-onAirChange('birthdate', 'change', dateRegEx);
-onAirChange('quantity', 'change', tourRegEx);
+onAirChange('first', 'blur', stringRegEx);
+onAirChange('last', 'blur', stringRegEx);
+onAirChange('email', 'blur', emailRegEx);
+onAirChange('birthdate', 'blur', dateRegEx);
+onAirChange('quantity', 'blur', tourRegEx);
 /////
-const gameCgu = "checkboxcgu";
-const btnSub = document.getElementById("FinalBtn");
 disamit(gameCgu, btnSub, 'change');
 /////
-const gameTournoi = document.querySelectorAll('input[name="location"]');
 radioCheck(gameTournoi, 'click');
-
 
 // =================== GAMe öN ============== ATHENA PRACTICE =
 // OC FORM SUBMIT ================== NEPHA CODE ===============
@@ -248,8 +248,9 @@ try {
   //Validor(emailInput, resultat );*/
 }
 //// >>>>>>>> GO TO CATCH
-catch (Error) {
-  console.log("y'a des erreurs" + error.message)
+catch (error) {
+  event.preventDefault();
+  console.log("il y'a des erreurs" + error.message)
 }
 //// >>>>>>>> END 
 });
