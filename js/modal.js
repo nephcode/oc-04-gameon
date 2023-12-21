@@ -1,4 +1,4 @@
-// ============================================================
+// ==================================NEPHA CODE ===============
 // NAV ========================================================
 // ============================================================
 function editNav() {
@@ -26,30 +26,27 @@ function launchModal() {
   console.log("Ouverture de la modal");
 }
 
-// Sélectionnez l'élément qui représente la croix
+// Target la croix
 const closeBtn = document.querySelector('.close');
 const modal = document.querySelector('.bground');
-
-// Ajoutez un écouteur d'événements pour détecter le clic sur la croix
+// Clic sur la croix
 closeBtn.addEventListener('click', () => {
-  // Ajoutez la logique pour cacher la modale
+  // DisplayNone La Modale
   modal.style.display = 'none';
-  console.log("Fermeture de la modal");
+  document.getElementById('ocform').reset();
+  console.log("Fermeture et clean modal");
 });
 
-// ============================================================
-// FONCTION  ======================= NEAH GAME ================
+// ===================================== NephaC00d3 ===========
+// VALID FORM ====================== NEAH GAME ================
 // =============================================== 2023 =======
-// change button by neah
+// change button by NeahGame Feat NephaCode 
 /***
-*
-* 
 * @param {string} targetBtn
 * @param {string} classChg
-* @param {string} TxtBtn
+* @param {string} txtBtn
 */
-
-function DisplayValidForm(targetBtn, TxtBtn, classChg){
+function DisplayValidForm(targetBtn, txtBtn, classChg){
   /// =============
   let btCloseForm = document.getElementById(targetBtn);
   //let finalMessage = "Merci pour votre inscription";
@@ -58,10 +55,9 @@ function DisplayValidForm(targetBtn, TxtBtn, classChg){
   let txtDone = `
          <bouton id="FinalBtn" class="${classChg}"
           type="submit"
-          class="button">${TxtBtn}</bouton>
+          class="button">${txtBtn}</bouton>
         `;
-  
-  let txtDon = `${TxtBtn}`;
+  let txtDon = `${txtBtn}`;
   btCloseForm.innerText = txtDon;
   /// =============  
 }
@@ -71,62 +67,39 @@ let clozForm = document.getElementById("FinalBtn");
 clozForm.addEventListener('click', () => {
   // Ajoutez la logique pour cacher la modale
   //modal.style.display = 'none';
-  console.log("Fermeture de la modal");
+  console.log("Fermeture et Clean Modal");
 });
 
 // ============================================================
-// FORMULAIRE  =========================== NEPHA CODE =========
+// INPUT TEXT  =========================== NEPHA CODE =========
 // ============================================================
  /// nom-fonction (nom-champ, condition, type de listener)
  // la fonction s'appelle en change sur les champs
  /**
  * 
  *
- * @param {string} input
+ * @param {string} inputOnAir
  * 
  * */
-const OnAirChange = (input, listener, regRule) => {
-  const targetAir = document.getElementById(input);
-  targetAir.addEventListener(listener, (event) => {
+const onAirChange = (inputOnAir, listenerOnAir, regRuleOnAir) => {
+  const targetAir = document.getElementById(inputOnAir);
+  targetAir.addEventListener(listenerOnAir, (event) => {
     // bloquer le GET 
     //event.preventDefault();
-
-    const emailValue = event.target.value;
+    const inputValue = event.target.value;
     const fieldData = targetAir.parentElement;
-    if (regRule.test(emailValue)) {
-      console.log(`L'input ${input} est valide`);
+    if (regRuleOnAir.test(inputValue)) {
+      console.log(`L'input ${inputValue} est valide`);
       fieldData.classList.add("formDataOK");
       fieldData.setAttribute("data-error-visible", "false")
-      fieldData.setAttribute("data-error", `Votre saisie ${input} est valide`)
-
+      fieldData.setAttribute("data-error", `Votre saisie ${inputValue} est valide`)
     } else {
-      console.log(`L'input ${emailValue} est invalide`);
+      console.log(`L'input ${inputValue} est invalide`);
       fieldData.setAttribute("data-error-visible", "true");
-      fieldData.setAttribute("data-error", `Votre saisie ${input} n'est pas valide`)
+      fieldData.setAttribute("data-error", `Votre saisie ${inputValue} n'est pas valide`)
+      throw new Error(`L'élément ${inputValue} spécifié n'est pas valide`);
     }
   });
-}
-
-
-
-
-
- // plus efficace que les papillons 
-
-// ============================================================
-// FONCTION VALID EMAIL ============ NEPHA CODE ===============
-// =============================================== 2023 =======
-function Validor(input, condition ){
-/// =============
-  //let inEmail = trim(document.getElementById(email).value);
-  const formData = input.parentElement;
-  if (condition){
-    formData.setAttribute("data-error-visible", "false")
-  }
-  else {
-    formData.setAttribute("data-error-visible", "true")
-  }
- 
 }
 
 // ============================================================
@@ -137,7 +110,7 @@ function Validor(input, condition ){
 * @param {string } inputDisamit 
 *
 */
-const Disamit = (inputDisamit, targetDisamit, listenerDisamit) => {
+const disamit = (inputDisamit, targetDisamit, listenerDisamit) => {
   let elementInput = document.getElementById(inputDisamit);
   //let conditionDisable = elementInput.checked;
   //let retro = elementInput.checked;
@@ -168,26 +141,28 @@ const Disamit = (inputDisamit, targetDisamit, listenerDisamit) => {
  * @param {string} listenerCheck - Le type d'événement à écouter (par exemple, 'change').
  * @throws {Error} Si l'élément radio spécifié n'existe pas ou si aucun bouton n'est sélectionné.
  */
-const Radiocheck = (listenerCheck) => {
-  
-  const gameTournoi = document.querySelectorAll('input[name="location"]');
-  console.log("Tournoi sélectionné : " + gameTournoi);
-  for (let i = 0; i < gameTournoi.length; i++) {
-    gameTournoi[i].addEventListener(listenerCheck, (event) => {
-      let location = "";
-     if (gameTournoi[i].checked) {
-      location = gameTournoi[i].value;
+const radioCheck = (inputRadio,listenerCheck) => {
+  //const inputRadio = document.querySelectorAll('input[name="location"]');
+  console.log("Tournoi sélectionné : " + inputRadio);
+  //let location = inputRadio[0];
+  for (let i = 0; i < inputRadio.length; i++) {
+    inputRadio[i].addEventListener(listenerCheck, (event) => {
+      if (inputRadio[i].checked) {
+       location = inputRadio[i].value;
+       console.log("Tournoi sélectionné : " + location);
       }
-      console.log("Tournoi sélectionné : " + location);
+      else{
+        inputRadio[0].checked
+        location = inputRadio[0].value;
+        console.log("Tournoi par défaut : " + location);
+      }
     });
-    
   }
   if (!gameTournoi) {
     throw new Error("L'élément radio spécifié n'existe pas");
   }
-
-  
 }
+// RADIOCHECK END ================================ 2023 =======
 
 
 // ============================================================
@@ -195,29 +170,33 @@ const Radiocheck = (listenerCheck) => {
 // =============================================== 2023 =======
 
 const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-const stringRegEx = /^[a-zA-Z0-9._-\u00C0-\u00FF]{2,32}$/;
+const stringRegEx = /^[a-zA-Z0-9._-\u000-\u00FF]{2,32}$/;
 const dateRegEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 const tourRegEx = /^\d{1,4}$/;
 
+
+
 // Call the function with the ID of your email input, 'change' as the listener, and the regex
-OnAirChange('email', 'change', emailRegEx);
-OnAirChange('last', 'change', stringRegEx);
-OnAirChange('first', 'change', stringRegEx);
-OnAirChange('birthdate', 'change', dateRegEx);
-OnAirChange('quantity', 'change', tourRegEx);
+onAirChange('email', 'change', emailRegEx);
+onAirChange('last', 'change', stringRegEx);
+onAirChange('first', 'change', stringRegEx);
+onAirChange('birthdate', 'change', dateRegEx);
+onAirChange('quantity', 'change', tourRegEx);
 /////
 const gameCgu = "checkboxcgu";
 const btnSub = document.getElementById("FinalBtn");
-Disamit(gameCgu, btnSub, 'change');
+disamit(gameCgu, btnSub, 'change');
 /////
 const gameTournoi = document.querySelectorAll('input[name="location"]');
-Radiocheck('click');
+radioCheck(gameTournoi, 'click');
+
 
 // =================== GAMe öN ============== ATHENA PRACTICE =
 // OC FORM SUBMIT ================== NEPHA CODE ===============
 // =============================================== 2023 =======
 const formOC = document.getElementById("ocform");
 formOC.addEventListener("submit", (event) => {
+try {
   // On empêche le comportement par défaut
   event.preventDefault();
   console.log("Il n’y a pas eu de rechargement de page");
@@ -257,21 +236,20 @@ formOC.addEventListener("submit", (event) => {
   else {
     console.log("Conditions RGPD acceptées : Non");  }
 
-  let ar = "Fermer";
+  let ar = "Valider à Nouveau";
   let classos = "btn-submit btn-signup modal-btn";
   let target = "FinalBtn";
   DisplayValidForm(target, ar, classos );
-
+/*
   const emailInput = document.getElementById("email");
   let regexMail = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+");
   let resultat = regexMail.test(emailInput);
   console.log(resultat); // Affiche true.
-  Validor(emailInput, resultat );
-});
-/*
-try {
-  
-} catch (Error) {
-  
+  //Validor(emailInput, resultat );*/
 }
-*/
+//// >>>>>>>> GO TO CATCH
+catch (Error) {
+  console.log("y'a des erreurs" + error.message)
+}
+//// >>>>>>>> END 
+});
