@@ -94,12 +94,11 @@ const onAirChange = (inputOnAir, listenerOnAir, regRuleOnAir) => {
       fieldData.setAttribute("data-error-visible", "false")
       fieldData.setAttribute("data-error", `Votre saisie ${inputValue} est valide`)
     } else {
-      btnSub.setAttribute("disabled", "");
+      //btnSub.setAttribute("disabled", "");
       console.log(`L'input ${inputValue} est invalide`);
-
       fieldData.setAttribute("data-error-visible", "true");
       fieldData.setAttribute("data-error", `Votre saisie ${inputValue} n'est pas valide`)
-      throw new error(`L'élément ${inputValue} spécifié n'est pas valide`);
+      throw new Error(`L'élément ${inputValue} spécifié n'est pas valide`);
     }
   });
 }
@@ -125,7 +124,7 @@ const disamit = (inputDisamit, targetDisamit, listenerDisamit) => {
     } else {
       //console.log("Conditions générales acceptées : Non");
       targetDisamit.setAttribute("disabled", "");
-      throw new error(`Le bouton ${inputDisamit} des CGU n'est pas coché`);
+      throw new Error(`Le bouton ${inputDisamit} des CGU n'est pas coché`);
     }
   });
 }
@@ -133,35 +132,24 @@ const disamit = (inputDisamit, targetDisamit, listenerDisamit) => {
 // ============================================================
 // FONCTION RATIOCHECK ============= NEPHA CODE ===============
 // =============================================== 2023 =======
-
-/// Bolean YES/NO if NO Error else WHILE Return values 
 /**
-/**
- * Vérifie l'état d'un bouton radio et ajoute un écouteur d'événements.
- *
- * @param {string} inputRadioIn - L'ID de l'élément bouton radio.
- * @param {string} listenerCheck - Le type d'événement à écouter (par exemple, 'change').
- * @throws {Error} Si l'élément radio spécifié n'existe pas ou si aucun bouton n'est sélectionné.
- */
-const radioCheck = (inputRadioIn,listenerCheck) => {
+ * @param {string} inputRadioIn 
+ * @param {string} listenerRadio  
+ **/
+const radioCheck = (inputRadioIn,listenerRadio) => {
   const inputRadio = document.querySelectorAll(inputRadioIn);
-  console.log("Tournoi sélectionné : " + inputRadio);
-  //let location = inputRadio[0];
+  let location = "";
   for (let i = 0; i < inputRadio.length; i++) {
-    inputRadio[i].addEventListener(listenerCheck, (event) => {
+    inputRadio[i].addEventListener(listenerRadio, (event) => {
       if (inputRadio[i].checked) {
        location = inputRadio[i].value;
        console.log("Tournoi sélectionné : " + location);
       }
       else{
-        inputRadio[0].checked
         location = inputRadio[0].value;
         console.log("Tournoi par défaut : " + location);
       }
     });
-  }
-  if (!gameTournoi) {
-    throw new error("L'élément radio spécifié n'existe pas");
   }
 }
 // RADIOCHECK END ================================ 2023 =======
@@ -173,6 +161,8 @@ const radioCheck = (inputRadioIn,listenerCheck) => {
 
 // VARIABLE PROGZ
 const gameCgu = "checkboxcgu";
+const cguDown = document.getElementById("checkboxcgu");
+console.log(cguDown);
 const btnSub = document.getElementById("FinalBtn");
 const gameTournoi = 'input[name="location"]';
 // VARIABLE REGEX
@@ -181,15 +171,24 @@ const stringRegEx = /^[a-zA-Z0-9._-\u000-\u00FF]{2,32}$/;
 const dateRegEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 const tourRegEx = /^\d{1,4}$/;
 // Call the function with the ID of your email input, 'change' as the listener, and the regex
-onAirChange('first', 'blur', stringRegEx);
-onAirChange('last', 'blur', stringRegEx);
-onAirChange('email', 'blur', emailRegEx);
-onAirChange('birthdate', 'blur', dateRegEx);
-onAirChange('quantity', 'blur', tourRegEx);
-/////
-disamit(gameCgu, btnSub, 'change');
-/////
-radioCheck(gameTournoi, 'click');
+try {
+  onAirChange('first', 'blur', stringRegEx);
+  onAirChange('last', 'blur', stringRegEx);
+  onAirChange('email', 'blur', emailRegEx);
+  onAirChange('birthdate', 'blur', dateRegEx);
+  onAirChange('quantity', 'blur', tourRegEx);
+  /////
+  disamit(gameCgu, btnSub, 'change');
+  /////
+  radioCheck(gameTournoi, 'click');
+}
+catch (Error) {
+  btnSub.setAttribute("disabled", "");
+  document.getElementById(gameCgu).checked = false;
+  document.getElementById(cguDownu).checked = false;
+  console.log(gameCgu.value);
+  console.log("il y'a des erreurs" + Error.message)
+}
 
 // =================== GAMe öN ============== ATHENA PRACTICE =
 // OC FORM SUBMIT ================== NEPHA CODE ===============
