@@ -227,7 +227,12 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-
+/*
+NEPHA CODE UPDATE 
+Le code livré par Openclassrooms c'est une honte
+J'ai une colère immense de perdre du temps par votre amateurisme
+Vous êtes sensé enseigner pas en saigner
+*/
 .formDataOK[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -250,6 +255,19 @@ input {
 #FinalBtn[disabled]{
   background-color: #c4c4c4;
 }
+
+.squareNeph{
+  display: flex;
+  width: 100%;
+  min-height: 350px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal ;
+}
+
+/* FIN DU CODE UPDATE (merci à moi-même) */
+
 
 /* 
 input[data-error]::after {

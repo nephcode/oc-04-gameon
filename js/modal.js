@@ -27,26 +27,26 @@ function launchModal() {
 }
 
 // Target la croix
-const closeBtn = document.querySelector('.close');
-const modal = document.querySelector('.bground');
+const closeBtn = document.querySelector(".close");
+const modal = document.querySelector(".bground");
 // Clic sur la croix
-closeBtn.addEventListener('click', () => {
+closeBtn.addEventListener("click", () => {
   // DisplayNone La Modale
-  modal.style.display = 'none';
-  document.getElementById('ocform').reset();
+  modal.style.display = "none";
+  document.getElementById("ocform").reset();
   console.log("Fermeture et clean modal");
 });
 
 // ===================================== NephaC00d3 ===========
 // VALID FORM ====================== NEAH GAME ================
 // =============================================== 2023 =======
-// change button by NeahGame Feat NephaCode 
+// change button by NeahGame Feat NephaCode
 /***
-* @param {string} targetBtn
-* @param {string} classChg
-* @param {string} txtBtn
-*/
-function DisplayValidForm(targetBtn, txtBtn, classChg){
+ * @param {string} targetBtn
+ * @param {string} classChg
+ * @param {string} txtBtn
+ */
+function DisplayValidForm(targetBtn, txtBtn, classChg) {
   /// =============
   let btCloseForm = document.getElementById(targetBtn);
   //let finalMessage = "Merci pour votre inscription";
@@ -59,12 +59,12 @@ function DisplayValidForm(targetBtn, txtBtn, classChg){
         `;
   let txtDon = `${txtBtn}`;
   btCloseForm.innerText = txtDon;
-  /// =============  
+  /// =============
 }
 
 // Ajoutez un écouteur d'événements pour détecter le clic sur la croix
 let clozForm = document.getElementById("FinalBtn");
-clozForm.addEventListener('click', () => {
+clozForm.addEventListener("click", () => {
   // Ajoutez la logique pour cacher la modale
   //modal.style.display = 'none';
   console.log("Fermeture et Clean Modal");
@@ -73,44 +73,50 @@ clozForm.addEventListener('click', () => {
 // ============================================================
 // INPUT TEXT  =========================== NEPHA CODE =========
 // ============================================================
- /// nom-fonction (nom-champ, condition, type de listener)
- // la fonction s'appelle en change sur les champs
- /**
- * 
+/// nom-fonction (nom-champ, condition, type de listener)
+// la fonction s'appelle en change sur les champs
+/**
+ *
  *
  * @param {string} inputOnAir
- * 
+ *
  * */
 const onAirChange = (inputOnAir, listenerOnAir, regRuleOnAir) => {
   const targetAir = document.getElementById(inputOnAir);
   targetAir.addEventListener(listenerOnAir, (event) => {
-    // bloquer le GET 
+    // bloquer le GET
     //event.preventDefault();
     const inputValue = event.target.value;
     const fieldData = targetAir.parentElement;
     if (inputValue && regRuleOnAir.test(inputValue)) {
       console.log(`L'input ${inputValue} est valide`);
       fieldData.classList.add("formDataOK");
-      fieldData.setAttribute("data-error-visible", "false")
-      fieldData.setAttribute("data-error", `Votre saisie ${inputValue} est valide`)
+      fieldData.setAttribute("data-error-visible", "false");
+      fieldData.setAttribute(
+        "data-error",
+        `Votre saisie ${inputValue} est valide`
+      );
     } else {
       //btnSub.setAttribute("disabled", "");
       console.log(`L'input ${inputValue} est invalide`);
       fieldData.setAttribute("data-error-visible", "true");
-      fieldData.setAttribute("data-error", `Votre saisie ${inputValue} n'est pas valide`)
+      fieldData.setAttribute(
+        "data-error",
+        `Votre saisie ${inputValue} n'est pas valide`
+      );
       throw new Error(`L'élément ${inputValue} spécifié n'est pas valide`);
     }
   });
-}
+};
 
 // ============================================================
 // FONCTION DISAMIT ================ NEPHA CODE ===============
 // =============================================== 2023 =======
 /**
-*
-* @param {string } inputDisamit 
-*
-*/
+ *
+ * @param {string } inputDisamit
+ *
+ */
 const disamit = (inputDisamit, targetDisamit, listenerDisamit) => {
   let elementInput = document.getElementById(inputDisamit);
   //let conditionDisable = elementInput.checked;
@@ -127,33 +133,31 @@ const disamit = (inputDisamit, targetDisamit, listenerDisamit) => {
       throw new Error(`Le bouton ${inputDisamit} des CGU n'est pas coché`);
     }
   });
-}
+};
 
 // ============================================================
 // FONCTION RATIOCHECK ============= NEPHA CODE ===============
 // =============================================== 2023 =======
 /**
- * @param {string} inputRadioIn 
- * @param {string} listenerRadio  
+ * @param {string} inputRadioIn
+ * @param {string} listenerRadio
  **/
-const radioCheck = (inputRadioIn,listenerRadio) => {
+const radioCheck = (inputRadioIn, listenerRadio) => {
   const inputRadio = document.querySelectorAll(inputRadioIn);
   let location = "";
   for (let i = 0; i < inputRadio.length; i++) {
     inputRadio[i].addEventListener(listenerRadio, (event) => {
       if (inputRadio[i].checked) {
-       location = inputRadio[i].value;
-       console.log("Tournoi sélectionné : " + location);
-      }
-      else{
+        location = inputRadio[i].value;
+        console.log("Tournoi sélectionné : " + location);
+      } else {
         location = inputRadio[0].value;
         console.log("Tournoi par défaut : " + location);
       }
     });
   }
-}
+};
 // RADIOCHECK END ================================ 2023 =======
-
 
 // ============================================================
 // EXECUTE CHANGE ================== NEPHA CODE ===============
@@ -172,22 +176,23 @@ const dateRegEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 const tourRegEx = /^\d{1,4}$/;
 // Call the function with the ID of your email input, 'change' as the listener, and the regex
 try {
-  onAirChange('first', 'blur', stringRegEx);
-  onAirChange('last', 'blur', stringRegEx);
-  onAirChange('email', 'blur', emailRegEx);
-  onAirChange('birthdate', 'blur', dateRegEx);
-  onAirChange('quantity', 'blur', tourRegEx);
+  onAirChange("first", "blur", stringRegEx);
+  onAirChange("last", "blur", stringRegEx);
+  onAirChange("email", "blur", emailRegEx);
+  onAirChange("birthdate", "blur", dateRegEx);
+  onAirChange("quantity", "blur", tourRegEx);
   /////
-  disamit(gameCgu, btnSub, 'change');
+  disamit(gameCgu, btnSub, "change");
   /////
-  radioCheck(gameTournoi, 'click');
-}
-catch (Error) {
+  radioCheck(gameTournoi, "click");
+} catch (Error) {
   btnSub.setAttribute("disabled", "");
   document.getElementById(gameCgu).checked = false;
-  document.getElementById(cguDownu).checked = false;
+  document.getElementById(cguDown).checked = false;
   console.log(gameCgu.value);
-  console.log("il y'a des erreurs" + Error.message)
+  console.log(gameCgu);
+  console.log(gameCgu.checked);
+  console.log("il y'a des erreurs" + Error.message);
 }
 
 // =================== GAMe öN ============== ATHENA PRACTICE =
@@ -195,61 +200,80 @@ catch (Error) {
 // =============================================== 2023 =======
 const formOC = document.getElementById("ocform");
 formOC.addEventListener("submit", (event) => {
-try {
-  // On empêche le comportement par défaut
-  event.preventDefault();
-  console.log("Il n’y a pas eu de rechargement de page");
-  // prenom
-  let gameFirst = document.getElementById("first").value;
-  console.log("Prénom : " + gameFirst);
-  // nom
-  let gameLast = document.getElementById("last").value;
-  console.log("Nom :" + gameLast);
-  // email
-  let gameEmail = document.getElementById("email").value;
-  console.log("Email : " + gameEmail);
-  // birth
-  const gameBirth = document.getElementById("birthdate").value;
-  console.log("Date de naissance : " + gameBirth);
-  // Participation 
-  const gameQuantity = document.getElementById("quantity").value;
-  console.log("Nombre de Participation : " + gameQuantity);
-  // Tournoi
-  let gameTournoi = document.querySelectorAll('input[name="location"]');
-  let location = "";
-  for (let i = 0; i < gameTournoi.length; i++) {
-    if (gameTournoi[i].checked) {
-      location = gameTournoi[i].value
-      break
+    // On empêche le comportement par défaut
+    event.preventDefault();
+    let txtBtn = "Fermer";
+    let classChg = "btn-submit"
+    let txtDone = `
+    <form 
+      name="reserve"
+      action="/index.html"
+      method="get" 
+      id="ocform" 
+      novalidate
+    >
+      <div class="form-data squareNeph">Merci pour <br/>votre inscription</div>
+      <bouton 
+        id="FinalBtn" 
+        class="${classChg}"
+        type="submit"
+        >${txtBtn}
+      </bouton>
+    </form>
+     `;
+   formOC.innerHTML = txtDone;
+    //formOC.replaceChild(txtDone, ocform);
+  }); 
+    /*
+    console.log("Il n’y a pas eu de rechargement de page");
+    // prenom
+    let gameFirst = document.getElementById("first").value;
+    console.log("Prénom : " + gameFirst);
+    // nom
+    let gameLast = document.getElementById("last").value;
+    console.log("Nom :" + gameLast);
+    // email
+    let gameEmail = document.getElementById("email").value;
+    console.log("Email : " + gameEmail);
+    // birth
+    const gameBirth = document.getElementById("birthdate").value;
+    console.log("Date de naissance : " + gameBirth);
+    // Participation
+    const gameQuantity = document.getElementById("quantity").value;
+    console.log("Nombre de Participation : " + gameQuantity);
+    // Tournoi
+    let gameTournoi = document.querySelectorAll('input[name="location"]');
+    let location = "";
+    for (let i = 0; i < gameTournoi.length; i++) {
+      if (gameTournoi[i].checked) {
+        location = gameTournoi[i].value;
+        break;
+      }
     }
-  }
-  console.log(location) // affiche la valeur du radio coché
-  // CGU & ADS
-  if(gameCgu){
-    console.log("Conditions générales acceptées : Oui");  }
-  else {
-    console.log("Conditions générales acceptées : Non");  }
-  const gameAds = document.getElementById("checkboxads").value;
-  if(gameAds){
-    console.log("Conditions RGPD acceptées : Oui");  }
-  else {
-    console.log("Conditions RGPD acceptées : Non");  }
+    console.log(location); // affiche la valeur du radio coché
+    // CGU & ADS
+    if (gameCgu) {
+      console.log("Conditions générales acceptées : Oui");
+    } else {
+      console.log("Conditions générales acceptées : Non");
+    }
+    const gameAds = document.getElementById("checkboxads").value;
+    if (gameAds) {
+      console.log("Conditions RGPD acceptées : Oui");
+    } else {
+      console.log("Conditions RGPD acceptées : Non");
+    }
 
-  let ar = "Valider à Nouveau";
-  let classos = "btn-submit btn-signup modal-btn";
-  let target = "FinalBtn";
-  DisplayValidForm(target, ar, classos );
-/*
+    let ar = "Valider à Nouveau";
+    let classos = "btn-submit btn-signup modal-btn";
+    let target = "FinalBtn";
+    DisplayValidForm(target, ar, classos);
+    /*
   const emailInput = document.getElementById("email");
   let regexMail = new RegExp("[a-z0-9._-]+@[a-z0-9._-]+\.[a-z0-9._-]+");
   let resultat = regexMail.test(emailInput);
   console.log(resultat); // Affiche true.
   //Validor(emailInput, resultat );*/
-}
-//// >>>>>>>> GO TO CATCH
-catch (error) {
-  event.preventDefault();
-  console.log("il y'a des erreurs" + error.message)
-}
-//// >>>>>>>> END 
-});
+  
+
+
