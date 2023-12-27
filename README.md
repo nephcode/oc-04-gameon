@@ -2,7 +2,7 @@
 
 # GAME ON
 
-A *JS FORM* validator animated project for OpenClassrooms course AKA Project 4 GAME ON
+A _JS FORM_ validator animated project for OpenClassrooms course AKA Project 4 GAME ON
 
 | -       | URL                                                                                          |
 | ------- | -------------------------------------------------------------------------------------------- |
@@ -26,9 +26,9 @@ A *JS FORM* validator animated project for OpenClassrooms course AKA Project 4 G
 - OpenClassCourse 100% completed
 
 ## EXPLAIN THE PROJECT
-- `HTML` Integration 
+
+- `HTML` Integration
 - `CSS` to `SCSS` upgrade
 - Add `Defer` and replace `<script>` in **HEAD**
-
 
 ![cover](https://kpkfzczpavanzocxzyta.supabase.co/storage/v1/object/public/nephcode-public/githubReadmeSkills.png)

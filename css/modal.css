@@ -100,6 +100,12 @@ img {
     display: block;
     margin-top: -15px;
   }
+  .btn-submit, .btn-signup {
+    background: #fe142f;
+    max-width: 70%;
+    padding: 12px 55px;
+    text-align: center;
+  }
 } 
 
 main {
@@ -368,6 +374,7 @@ input[data-error]::after {
 .btn-signup {
   background: #fe142f;
   display: block;
+  max-width: 60%;
   margin: 0 auto;
   border-radius: 7px;
   font-size: 1rem;
@@ -375,6 +382,7 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
+  text-align: center;
 }
 /* custom select styles */
 .custom-select {
