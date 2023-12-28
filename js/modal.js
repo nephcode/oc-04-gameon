@@ -23,18 +23,17 @@ const dateRegEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 const tourRegEx = /^\d{1,4}$/;
 
 // ==================================NEPHA CODE ===============
-// NAV ========================================================
+// NAV RESPONSIVE =============================================
 // ============================================================
- const navMobile() => {
-  var navAdapt = document.getElementById("myTopnav");
-  if (navAdapt.className === "topnav") {
-    navAdapt.className += " responsive";
-  } else {
-    navAdapt.className = "topnav";
-  }
-}
+const navMobile = document.getElementById("myTopnav"); 
+navMobile.addEventListener("click", () => {
 
-clozForm.addEventListener("click", () => {
+  if (navMobile.className === "topnav") {
+    navMobile.className += " responsive";
+  } else {
+    navMobile.className = "topnav";
+  }
+});
 
 // ============================================================
 // MODAL ACTION ===============================================
@@ -45,7 +44,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
 function launchModal() {
-  modalbg.style.display = "block";
+  modal.style.display = "block";
   console.log("Ouverture de la modale");
   document.getElementById(gameCgu).checked = false;
 }
