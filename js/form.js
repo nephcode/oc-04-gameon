@@ -3,7 +3,7 @@
 // ============================================= 2023 =========
 let txtBtn = "Fermer";
 let classChg = "btn-submit";
-
+let idButton = "clozerClean";
 export const formField =`<form
               name="reserve"
               action="/index.html"
@@ -163,7 +163,7 @@ export const formFinish = `<form
     >
       <div class="form-data squareNeph">Merci pour <br/>votre inscription</div>
       <bouton 
-        id="FinalBtn" 
+        id="${idButton}" 
         class="${classChg}"
         type="submit"
         >${txtBtn}

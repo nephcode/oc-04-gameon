@@ -3,24 +3,42 @@
 // =============================================== 2023 =======
 import {formField, formFinish} from '/js/form.js';
 
+// =============== GAME öN ========= NEPHA CODE ===============
+// VARIABLES ==================================================
+// =============================================== 2023 =======
+const modal = document.querySelector(".bground");
+const modalBtn = document.querySelectorAll(".modal-btn");
+const formData = document.querySelectorAll(".formData");
+// VARIABLE PROGZ
+const gameCgu = "checkboxcgu";
+const checkRgpd = "checkboxads";
+const cguDown = document.getElementById("checkboxcgu");
+//console.log(cguDown);
+const btnSub = document.getElementById("FinalBtn");
+const gameTournoi = 'input[name="location"]';
+// VARIABLE REGEX
+const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+const stringRegEx = /^[a-zA-Z0-9._-\u000-\u00FF]{2,32}$/;
+const dateRegEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
+const tourRegEx = /^\d{1,4}$/;
+
 // ==================================NEPHA CODE ===============
 // NAV ========================================================
 // ============================================================
-function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
+ const navMobile() => {
+  var navAdapt = document.getElementById("myTopnav");
+  if (navAdapt.className === "topnav") {
+    navAdapt.className += " responsive";
   } else {
-    x.className = "topnav";
+    navAdapt.className = "topnav";
   }
 }
+
+clozForm.addEventListener("click", () => {
 
 // ============================================================
 // MODAL ACTION ===============================================
 // ============================================================
-const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -28,36 +46,33 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
-  console.log("Ouverture de la modal");
+  console.log("Ouverture de la modale");
   document.getElementById(gameCgu).checked = false;
 }
-
 // ============================================================
 // CLOSE CROIX ================================================
 // ============================================================
 const close = document.querySelector(".close");
-const modal = document.querySelector(".bground");
+//const modal = document.querySelector(".bground");
 const resetForm = document.getElementById('ocform');
 close.addEventListener("click", () => {
   modal.style.display = "none";
   document.getElementById("ocform").reset();
   resetForm.innerHTML = formField;
-  console.log("Fermeture Croix et Clean modal");
+  console.log("Fermeture Croix et Clean modale");
 });
-
 
 // ============================================================
 // CLOSE BUTTON ===============================================
 // ============================================================
 
-let clozForm = document.getElementById("FinalBtn");
+let clozForm = document.getElementById("clozerClean");
 clozForm.addEventListener("click", () => {
   // Ajoutez la logique pour cacher la modale
-  //modal.style.display = 'none';
+  modal.style.display = 'none';
   formOC.innerHTML = formField;
-  console.log("Fermeture Button et Clean Modal");
+  console.log("Fermeture Button et Clean Modale");
 });
-
 // ============================================================
 // INPUT TEXT  =========================== NEPHA CODE =========
 // ============================================================
@@ -165,18 +180,7 @@ const radioCheck = (inputRadioIn, listenerRadio) => {
 // EXECUTE CHANGE ================== NEPHA CODE ===============
 // =============================================== 2023 =======
 
-// VARIABLE PROGZ
-const gameCgu = "checkboxcgu";
-const checkRgpd = "checkboxads";
-const cguDown = document.getElementById("checkboxcgu");
-//console.log(cguDown);
-const btnSub = document.getElementById("FinalBtn");
-const gameTournoi = 'input[name="location"]';
-// VARIABLE REGEX
-const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-const stringRegEx = /^[a-zA-Z0-9._-\u000-\u00FF]{2,32}$/;
-const dateRegEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
-const tourRegEx = /^\d{1,4}$/;
+
 // Call the function with the ID of your email input, 'change' as the listener, and the regex
 try {
   onAirChange("first", "blur", stringRegEx);
