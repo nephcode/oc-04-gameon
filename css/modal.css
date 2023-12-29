@@ -14,7 +14,8 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
+  /*background-color: url("/images/background-image.jpg");*/
+  background-color: #fff;
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -97,7 +98,13 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    margin-top: 1px;
+  }
+  .btn-submit, .btn-signup {
+    background: #fe142f;
+    max-width: 70%;
+    padding: 12px 55px;
+    text-align: center;
   }
 } 
 
@@ -226,6 +233,48 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
+/*
+NEPHA CODE UPDATE 
+Le code livré par Openclassrooms c'est une honte
+J'ai une colère immense de perdre du temps par votre amateurisme
+Vous êtes sensé enseigner pas en saigner
+*/
+.formDataOK[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.4em;
+  color: #279e7a;
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: right;
+  line-height: 0.3;
+  opacity: 0;
+  transition: 0.3s;
+}
+.formDataOK[data-error-visible="false"]::after {
+  opacity: 1;
+}
+.formDataOK[data-error-visible="false"] .text-control {
+  border: 2px solid #279e7a;
+}
+
+#FinalBtn[disabled]{
+  background-color: #c4c4c4;
+}
+
+.squareNeph{
+  display: flex;
+  width: 100%;
+  min-height: 350px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal ;
+}
+
+/* FIN DU CODE UPDATE (merci à moi-même) */
+
+
 /* 
 input[data-error]::after {
     content: attr(data-error);
@@ -256,8 +305,8 @@ input[data-error]::after {
 .checkbox-label .checkbox-icon::after,
 .checkbox2-label .checkbox-icon::after {
   content: "";
-  width: 13px;
-  height: 13px;
+  width: 14px;
+  height: 14px;
   background-color: #279e7a;
   border-radius: 50%;
   text-indent: 29px;
@@ -325,6 +374,7 @@ input[data-error]::after {
 .btn-signup {
   background: #fe142f;
   display: block;
+  max-width: 60%;
   margin: 0 auto;
   border-radius: 7px;
   font-size: 1rem;
@@ -332,6 +382,7 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
+  text-align: center;
 }
 /* custom select styles */
 .custom-select {

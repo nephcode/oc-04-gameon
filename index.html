@@ -2,14 +2,17 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <title>Reservation</title>
+    <title>GameOn Reservation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="/css/modal.css" />
+    <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link
       href="https://fonts.googleapis.com/css?family=DM+Sans"
       rel="stylesheet"
     />
+    <script src="/js/form.js" type="module" defer></script>
+    <script src="/js/modal.js" type="module" defer></script>
   </head>
   <body>
     <div class="topnav" id="myTopnav">
@@ -17,14 +20,12 @@
       <img alt="logo" src="/images/logo-gameon.png" width="auto" height="auto" />
     </div>
     <div class="main-navbar">
-      
       <a href="#" class="active"><span>Accueil</span></a>
       <a href="#"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
       <a href="#"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="icon" onclick="editNav()">
-        <i class="fa fa-bars"></i>
+      <a href="#" class="icon"><i class="fa fa-bars"></i>
       </a>
     </div>
     </div>
@@ -40,7 +41,7 @@
             Vous aimez jouer ? Notre prochain évènement gaming est ouvert
             aux réservations... Places limitées !
           </p>
-          <button class="btn-signup modal-btn">
+          <button id="signup" class="btn-signup modal-btn">
             je m'inscris
           </button>
         </div>
@@ -59,22 +60,20 @@
             <form
               name="reserve"
               action="/index.html"
-              method="get"
-              onsubmit="return validate();"
-            >
+              method="get" id="ocform" novalidate>
               <div
-                class="formData">
+                class="formData" data-error-visible="false" data-error="Champ Prénom invalide">
                 <label>Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
-                  minlength="2"
+                  
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" data-error-visible="false" data-error="Champ Nom invalide">
                 <label>Nom</label><br>
                 <input
                   class="text-control"
@@ -84,7 +83,7 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" data-error-visible="false" data-error="Champ Email invalide">
                 <label>E-mail</label><br>
                 <input
                   class="text-control"
@@ -94,23 +93,23 @@
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" data-error-visible="false">
                 <label>Date de naissance</label><br>
                 <input
                   class="text-control"
                   type="date"
                   id="birthdate"
-                  name="birthdate"
+                  name="birthdate" 
                 /><br>
               </div>
               <div
-                class="formData">
+                class="formData" data-error-visible="false">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
               </div>
               <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div
-                class="formData">
+                class="formData" data-error-visible="false">
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -180,31 +179,28 @@
               </div>
 
               <div
-                class="formData">
+                class="formData" data-error="false">
                 <input
                   class="checkbox-input"
                   type="checkbox"
-                  id="checkbox1"
-                  checked
+                  id="checkboxcgu"
+                
                 />
-                <label class="checkbox2-label" for="checkbox1" required>
+                <label class="checkbox2-label" for="checkboxcgu" required>
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
                 <br>
-                <input class="checkbox-input" type="checkbox" id="checkbox2" />
-                <label class="checkbox2-label" for="checkbox2">
+                <input class="checkbox-input" type="checkbox" id="checkboxads" />
+                <label class="checkbox2-label" for="checkboxads">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br>
               </div>
-              <input
-                class="btn-submit"
-                type="submit"
-                class="button"
-                value="C'est parti"
-              />
+              <button id="FinalBtn" class="btn-submit"
+              type="submit"
+              class="button" disabled>C'est parti</button>
             </form>
           </div>
         </div>
@@ -215,6 +211,6 @@
         Copyright 2014 - 2023, GameOn Inc. upgrade with style by NephaCode 
       </p>
     </footer>
-    <script src="/js/modal.js"></script>
+
   </body>
 </html>
