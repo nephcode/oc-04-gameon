@@ -10,6 +10,7 @@ export const formField =`<form
               method="get" id="ocform" novalidate>
               <div
                 class="formData" data-error-visible="false" data-error="Champ Prénom invalide">
+                Formulaire Bis
                 <label>Prénom</label><br>
                 <input
                   class="text-control"

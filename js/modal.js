@@ -22,9 +22,9 @@ const stringRegEx = /^[a-zA-Z0-9._-\u000-\u00FF]{2,32}$/;
 const dateRegEx = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 const tourRegEx = /^\d{1,4}$/;
 
-// ==================================NEPHA CODE ===============
+// ================================= NEPHA CODE ===============
 // NAV RESPONSIVE =============================================
-// ============================================================
+// ================================  SPARROW ==================
 const navMobile = document.getElementById("myTopnav"); 
 navMobile.addEventListener("click", () => {
 
@@ -64,14 +64,17 @@ close.addEventListener("click", () => {
 // ============================================================
 // CLOSE BUTTON ===============================================
 // ============================================================
-
-let clozForm = document.getElementById("clozerClean");
+/*
+if(clozForm){
+  let clozForm = document.getElementById("clozerClean");
+}
 clozForm.addEventListener("click", () => {
   // Ajoutez la logique pour cacher la modale
   modal.style.display = 'none';
   formOC.innerHTML = formField;
   console.log("Fermeture Button et Clean Modale");
 });
+*/
 // ============================================================
 // INPUT TEXT  =========================== NEPHA CODE =========
 // ============================================================
