@@ -3,14 +3,14 @@
 // ============================================= 2023 =========
 let txtBtn = "Fermer";
 let classChg = "btn-submit";
-let idButton = "clozerClean";
+let idButton = "BtnInscriptionClozer";
 export const formField =`<form
               name="reserve"
               action="/index.html"
               method="get" id="ocform" novalidate>
               <div
                 class="formData" data-error-visible="false" data-error="Champ Prénom invalide">
-                Formulaire Bis
+                *
                 <label>Prénom</label><br>
                 <input
                   class="text-control"
