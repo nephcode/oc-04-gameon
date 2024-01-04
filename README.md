@@ -28,7 +28,17 @@ A _JS FORM_ validator animated project for OpenClassrooms course AKA Project 4 G
 ## EXPLAIN THE PROJECT
 
 - `HTML` Integration
-- `CSS` to `SCSS` upgrade
+- Updated `CSS` *VALIDATION GREEN*
+- Add `CSS` modal properties
+- Fixed `CSS` FIXED radiobox 13px to 14px
 - Add `Defer` and replace `<script>` in **HEAD**
+- Add `Form.js`to charge and recharge the modal
+- Arrow Function 
+- OnAir Function check input with thow Error
+- OnAir `Blur` function change submit 
+- Try Catch (partial how to)
+- Submit `PreventDefault` Change modal with htmlInner 
+- Both **Closer Function** clean form
+
 
 ![cover](https://kpkfzczpavanzocxzyta.supabase.co/storage/v1/object/public/nephcode-public/githubReadmeSkills.png)
