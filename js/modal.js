@@ -90,6 +90,10 @@ const onAirChange = (inputOnAir, listenerOnAir, regRuleOnAir) => {
         "data-error",
         `Votre saisie ${inputValue} n'est pas valide`
       );
+      const btnSuppr = document.getElementById("FinalBtn");
+      btnSuppr.setAttribute("disabled", "");
+      //const checkSuppr = document.getElementById("FinalBtn");
+      cguDown.checked = false;
       throw new Error(`L'élément ${inputValue} spécifié n'est pas valide`);
     }
   });
@@ -220,7 +224,6 @@ function launchModal() {
     /////
     radioCheck(gameTournoi, "click");
   } catch (Error) {
-    btnSub.setAttribute("disabled", "");
     document.getElementById(gameCgu).checked = false;
     document.getElementById(cguDown).checked = false;
     console.log(gameCgu.value);
