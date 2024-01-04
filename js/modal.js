@@ -52,8 +52,16 @@ close.addEventListener("click", () => {
 // ============================================================
 // CLOSE BUTTON ===============================================
 // ============================================================
-
-
+/*
+const closeFinal = document.getElementById("BtnInscriptionClozer");
+//const modal = document.querySelector(".bground");
+closeFinal.addEventListener("click", () => {
+  modal.style.display = "none";
+  document.getElementById("ocform").reset();
+  resetForm.innerHTML = formField;
+  console.log("Fermeture Final et Clean modale");
+});
+*/
 
 // ============================================================
 // INPUT TEXT  =========================== NEPHA CODE =========
@@ -230,7 +238,17 @@ formOC.addEventListener("submit", (event) => {
   event.preventDefault();
   formOC.innerHTML = formFinish;
   //const closeValid = document.getElementById("clozerClean");
-
+// ============================================================
+// CLOSE BUTTON ===============================================
+// ============================================================
+const closeFinal = document.getElementById("BtnInscriptionClozer");
+//const modal = document.querySelector(".bground");
+closeFinal.addEventListener("click", () => {
+  modal.style.display = "none";
+  document.getElementById("ocform").reset();
+  resetForm.innerHTML = formField;
+  console.log("Fermeture Final et Clean modale");
+});
 
 });
 // END =============== GAMe öN ================================
