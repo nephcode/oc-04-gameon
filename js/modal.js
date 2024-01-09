@@ -42,7 +42,7 @@ const close = document.querySelector(".close");
 close.addEventListener("click", () => {
   modal.style.display = "none";
   document.getElementById("ocform").reset();
-  resetForm.innerHTML = formField;
+  formOC.innerHTML = formField;
   console.log("Fermeture Croix et Clean modale");
 });
 
@@ -112,6 +112,53 @@ const rgpd = (inputRgpd, listenerRgpd) => {
   });
 };
 
+// ================= NEPHA CODE ===============================
+// BOUCLE DE VERIF ============================================
+// ============================= 2024 PATCH 😅 ================
+const verifList = [
+  { id: "first", regex: stringRegEx },
+  { id: "last", regex: stringRegEx },
+  { id: "email", regex: emailRegEx },
+  { id: "birthdate", regex: dateRegEx },
+  { id: "quantity", regex: tourRegEx },
+];
+
+const onSkud = (inputSkud, regRuleSkud) => {
+  const targetSkud = document.getElementById(inputSkud);
+  const targetCgu = document.getElementById(cguDown.id);
+  const targetMit = document.getElementById(btnSub.id);
+  const inputValue = targetSkud.value;
+
+  console.log(targetSkud.value);
+  const fieldData = targetSkud.parentElement;
+  if (inputValue && regRuleSkud.test(inputValue)) {
+    targetCgu.removeAttribute("disabled");
+    fieldData.classList.add("formDataOK");
+    fieldData.setAttribute("data-error-visible", "false");
+    fieldData.setAttribute(
+      "data-error",
+      `Votre saisie ${inputValue} est valide`
+    );
+    console.log(`L'input ${inputValue} est valide`);
+    console.log("Active checkbox : " + cguDown.id);
+  } else {
+    fieldData.classList.remove("formDataOK");
+    fieldData.setAttribute("data-error-visible", "true");
+    fieldData.setAttribute(
+      "data-error",
+      `Votre saisie ${inputValue} n'est pas valide`
+    );
+    targetMit.setAttribute("disabled", "");
+    targetCgu.checked = false;
+    targetCgu.setAttribute("disabled", "");
+    throw new Error(`L'élément ${inputValue} spécifié n'est pas valide`);
+  }
+};
+
+
+
+/// Peut-on nommer les item d'un tableau item[1] >> item[regex]
+
 // ============================================================
 // FONCTION DISAMIT ================ NEPHA CODE ===============
 // =============================================== 2023 =======
@@ -126,11 +173,16 @@ const disamit = (inputDisamit, targetDisamit, listenerDisamit) => {
   elementInput.addEventListener(listenerDisamit, (event) => {
     retro = elementInput.checked;
     if (retro) {
+      // BOUCLE PATCH VERIF DES CHAMPS
+      verifList.forEach((item) => {
+        onSkud(item.id, item.regex);
+        //console.log(`Champ: ${item.id}, Expression régulière: ${item.regex}`);
+      });
+      // FIN DE LA VERIF
       console.log("Conditions générales acceptées : Oui");
       console.log(submitProtect);
       submitProtect.removeAttribute("disabled");
     } else {
-      //console.log("Conditions générales acceptées : Non");
       submitProtect.setAttribute("disabled", "");
       throw new Error(`Le bouton ${inputDisamit} des CGU n'est pas coché`);
     }
@@ -164,18 +216,14 @@ const radioCheck = (inputRadioIn, listenerRadio) => {
 // ============================================================
 // MODAL ACTION ===============================================
 // ============================================================
-
-modalBtn.forEach((btn) => {
-  btn.addEventListener("click", launchModal);
-});
-
-// launch modal form
 function launchModal() {
   formOC.reset();
   formOC.innerHTML = formField;
   modal.style.display = "block";
   console.log("Ouverture de la modale");
-
+  //const gameTournoi = document.getElementsById("location1");
+  //console.log(gameTournoi.name);
+  //gameTournoi.checked;
   try {
     onAirChange("first", "blur", stringRegEx);
     onAirChange("last", "blur", stringRegEx);
@@ -191,6 +239,10 @@ function launchModal() {
     console.log("il y'a des erreurs" + Error.message);
   }
 }
+
+modalBtn.forEach((btn) => {
+  btn.addEventListener("click", launchModal);
+});
 
 // =================== GAMe öN ============== ATHENA PRACTICE =
 // OC FORM SUBMIT ================== NEPHA CODE ===============
