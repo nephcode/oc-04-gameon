@@ -211,6 +211,7 @@ const radioCheck = (inputRadioIn, listenerRadio) => {
     });
   }
 };
+
 // RADIOCHECK END ================================ 2023 =======
 
 // ============================================================
@@ -221,9 +222,7 @@ function launchModal() {
   formOC.innerHTML = formField;
   modal.style.display = "block";
   console.log("Ouverture de la modale");
-  //const gameTournoi = document.getElementsById("location1");
-  //console.log(gameTournoi.name);
-  //gameTournoi.checked;
+
   try {
     onAirChange("first", "blur", stringRegEx);
     onAirChange("last", "blur", stringRegEx);

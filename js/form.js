@@ -10,7 +10,7 @@ export const formField =`<form
               method="get" id="ocform" novalidate>
               <div
                 class="formData" data-error-visible="false" data-error="Champ Prénom invalide">
-                *
+                
                 <label>Prénom</label><br>
                 <input
                   class="text-control"
@@ -63,6 +63,7 @@ export const formField =`<form
                   id="location1"
                   name="location"
                   value="New York"
+                  checked
                 >
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
