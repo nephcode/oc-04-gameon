@@ -129,10 +129,10 @@ export const formField =`<form
                 <input
                   class="checkbox-input"
                   type="checkbox"
-                  id="checkboxcgu"
-                
+                  id="checkboxcgu" 
+                  required                 
                 >
-                <label class="checkbox2-label" for="checkboxcgu" required>
+                <label class="checkbox2-label" for="checkboxcgu" >
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
