@@ -1,4 +1,4 @@
-![cover](https://kpkfzczpavanzocxzyta.supabase.co/storage/v1/object/public/oc-react/readme-header-oc-react04.jpg)
+![cover](https://kpkfzczpavanzocxzyta.supabase.co/storage/v1/object/public/oc-react/readme-header-oc-react-04.jpg)
 
 # GAME ON
 
